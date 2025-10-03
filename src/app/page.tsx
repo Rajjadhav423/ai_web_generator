@@ -1,103 +1,224 @@
-import Image from "next/image";
 
-export default function Home() {
+// import { Button } from "@/components/ui/button"
+// import { Card, CardContent } from "@/components/ui/card"
+// import { Input } from "@/components/ui/input"
+// import { Badge } from "@/components/ui/badge"
+// import { ModeToggle } from "@/components/theme-toggle"
+
+// export default function Home() {
+//   return (
+//     <div className="min-h-screen bg-background">
+//       {/* Jira-style Dark Header */}
+//       <header className="bg-card border-b border-border sticky top-0 z-50">
+//         <div className="px-6 py-3">
+//           <div className="flex items-center justify-between">
+//             <div className="flex items-center gap-6">
+//               <div className="flex items-center gap-2">
+//                 <div className="w-6 h-6 bg-primary rounded flex items-center justify-center">
+//                   <svg className="w-4 h-4 text-primary-foreground" viewBox="0 0 24 24" fill="currentColor">
+//                     <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+//                   </svg>
+//                 </div>
+//                 <span className="text-sm font-semibold text-foreground">Jira</span>
+//               </div>
+//               <div className="h-6 w-px bg-border"></div>
+//               <nav className="flex items-center gap-1">
+//                 <button className="px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent hover:text-foreground rounded transition">
+//                   Your work
+//                 </button>
+//                 <button className="px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent hover:text-foreground rounded transition">
+//                   Projects
+//                 </button>
+//                 <button className="px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent hover:text-foreground rounded transition">
+//                   Filters
+//                 </button>
+//                 <button className="px-3 py-1.5 text-sm text-muted-foreground hover:bg-accent hover:text-foreground rounded transition">
+//                   Dashboards
+//                 </button>
+//               </nav>
+//             </div>
+//             <div className="flex items-center gap-3">
+//               <div>
+//                 <ModeToggle/>
+//               </div>
+//               <div className="relative">
+//                 <Input 
+//                   placeholder="Search" 
+//                   className="w-64 h-8 text-sm bg-accent border-0 focus-visible:ring-1"
+//                 />
+//               </div>
+//               <Button size="sm" className="h-8 px-3">Create</Button>
+//             </div>
+//           </div>
+//         </div>
+//       </header>
+
+//       {/* Sub Navigation */}
+//       <div className="bg-card border-b border-border">
+//         <div className="px-6 py-2">
+//           <div className="flex items-center justify-between">
+//             <div className="flex items-center gap-4">
+//               <h1 className="text-lg font-semibold text-foreground">OT board</h1>
+//               <div className="flex items-center gap-2 text-sm">
+//                 <button className="px-2 py-1 text-muted-foreground hover:text-foreground rounded">Summary</button>
+//                 <button className="px-2 py-1 text-muted-foreground hover:text-foreground rounded">Timeline</button>
+//                 <button className="px-2 py-1 bg-primary/10 text-primary rounded">Kanban board</button>
+//                 <button className="px-2 py-1 text-muted-foreground hover:text-foreground rounded">Calendar</button>
+//                 <button className="px-2 py-1 text-muted-foreground hover:text-foreground rounded">List</button>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Main Content */}
+//       <div className="flex">
+//         {/* Sidebar */}
+//         <aside className="w-60 bg-card border-r border-border p-4 space-y-1 min-h-screen">
+//           <button className="w-full px-3 py-2 text-sm text-left text-foreground hover:bg-accent rounded flex items-center gap-2">
+//             <span>For you</span>
+//           </button>
+//           <button className="w-full px-3 py-2 text-sm text-left text-muted-foreground hover:bg-accent rounded flex items-center gap-2">
+//             <span>Recent</span>
+//           </button>
+//           <button className="w-full px-3 py-2 text-sm text-left text-muted-foreground hover:bg-accent rounded flex items-center gap-2">
+//             <span>Starred</span>
+//           </button>
+
+//           <div className="pt-4 pb-2">
+//             <div className="px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider">Recent</div>
+//           </div>
+
+//           <button className="w-full px-3 py-2 text-sm text-left bg-primary/10 text-primary rounded flex items-center gap-2">
+//             <div className="w-5 h-5 bg-primary rounded-sm flex items-center justify-center text-xs text-primary-foreground font-semibold">
+//               OT
+//             </div>
+//             <span>OT board</span>
+//           </button>
+
+//           <button className="w-full px-3 py-2 text-sm text-left text-muted-foreground hover:bg-accent rounded flex items-center gap-2">
+//             <div className="w-5 h-5 bg-destructive rounded-sm flex items-center justify-center text-xs text-destructive-foreground font-semibold">
+//               CP
+//             </div>
+//             <span>Client Projects</span>
+//           </button>
+//         </aside>
+
+//         {/* Kanban Board */}
+//         <main className="flex-1 p-6 overflow-x-auto">
+//           <div className="mb-4 flex items-center gap-2">
+//             <Input placeholder="Search board" className="max-w-xs h-8 text-sm" />
+//             <div className="flex items-center gap-1">
+//               <div className="w-6 h-6 rounded-full bg-chart-2 border-2 border-background flex items-center justify-center text-xs text-white font-semibold">R</div>
+//               <div className="w-6 h-6 rounded-full bg-primary border-2 border-background flex items-center justify-center text-xs text-primary-foreground font-semibold">A</div>
+//               <div className="w-6 h-6 rounded-full bg-chart-3 border-2 border-background flex items-center justify-center text-xs text-white font-semibold">M</div>
+//               <div className="w-6 h-6 rounded-full bg-destructive border-2 border-background flex items-center justify-center text-xs text-destructive-foreground font-semibold">R</div>
+//             </div>
+//           </div>
+
+//           <div className="flex gap-4 min-w-max">
+//             {/* Backlog Column */}
+//             <div className="w-80 flex-shrink-0">
+//               <div className="mb-3">
+//                 <div className="flex items-center justify-between mb-2">
+//                   <h3 className="text-sm font-medium text-muted-foreground uppercase">Backlog</h3>
+//                   <Badge variant="secondary" className="text-xs">2</Badge>
+//                 </div>
+//               </div>
+
+//               <div className="space-y-2">
+//                 <Card className="bg-card hover:bg-accent/50 transition-colors cursor-pointer border-border">
+//                   <CardContent className="p-3">
+//                     <div className="mb-2 text-sm text-foreground">Update Company Website Home Page</div>
+//                     <div className="flex items-center justify-between">
+//                       <Badge variant="outline" className="text-xs font-mono">OT-29</Badge>
+//                       <div className="flex items-center gap-2">
+//                         <div className="flex gap-0.5">
+//                           <div className="w-1.5 h-1.5 rounded-full bg-destructive"></div>
+//                           <div className="w-1.5 h-1.5 rounded-full bg-destructive"></div>
+//                           <div className="w-1.5 h-1.5 rounded-full bg-destructive"></div>
+//                         </div>
+//                         <div className="w-6 h-6 rounded-full bg-muted"></div>
+//                       </div>
+//                     </div>
+//                   </CardContent>
+//                 </Card>
+
+//                 <Card className="bg-card hover:bg-accent/50 transition-colors cursor-pointer border-border">
+//                   <CardContent className="p-3">
+//                     <Badge className="mb-2 text-xs bg-destructive text-destructive-foreground">SALESFORCE ADMIN TRAINING</Badge>
+//                     <div className="mb-2 text-sm text-foreground">Salesforce Admin Training</div>
+//                     <div className="flex items-center justify-between">
+//                       <Badge variant="outline" className="text-xs font-mono">OT-30</Badge>
+//                       <div className="flex items-center gap-2">
+//                         <div className="flex gap-0.5">
+//                           <div className="w-1.5 h-1.5 rounded-full bg-destructive"></div>
+//                           <div className="w-1.5 h-1.5 rounded-full bg-destructive"></div>
+//                           <div className="w-1.5 h-1.5 rounded-full bg-destructive"></div>
+//                         </div>
+//                         <div className="w-6 h-6 rounded-full bg-destructive text-xs flex items-center justify-center text-destructive-foreground font-semibold">R</div>
+//                       </div>
+//                     </div>
+//                   </CardContent>
+//                 </Card>
+//               </div>
+
+//               <button className="mt-2 w-full px-3 py-2 text-sm text-left text-muted-foreground hover:bg-accent rounded">
+//                 + Create
+//               </button>
+//             </div>
+
+//             {/* Selected for Development */}
+//             <div className="w-80 flex-shrink-0">
+//               <div className="mb-3">
+//                 <div className="flex items-center justify-between mb-2">
+//                   <h3 className="text-sm font-medium text-muted-foreground uppercase">Selected for Development</h3>
+//                   <Badge variant="secondary" className="text-xs">0</Badge>
+//                 </div>
+//               </div>
+//               <div className="h-32 rounded border-2 border-dashed border-border"></div>
+//             </div>
+
+//             {/* In Progress */}
+//             <div className="w-80 flex-shrink-0">
+//               <div className="mb-3">
+//                 <div className="flex items-center justify-between mb-2">
+//                   <h3 className="text-sm font-medium text-muted-foreground uppercase">In Progress</h3>
+//                   <Badge variant="secondary" className="text-xs">0</Badge>
+//                 </div>
+//               </div>
+//               <div className="h-32 rounded border-2 border-dashed border-border"></div>
+//             </div>
+
+//             {/* Done */}
+//             <div className="w-80 flex-shrink-0">
+//               <div className="mb-3">
+//                 <div className="flex items-center justify-between mb-2">
+//                   <h3 className="text-sm font-medium text-muted-foreground uppercase">Done</h3>
+//                   <Badge variant="secondary" className="text-xs">0</Badge>
+//                 </div>
+//               </div>
+//               <div className="h-32 rounded border-2 border-dashed border-border"></div>
+//             </div>
+//           </div>
+//         </main>
+//       </div>
+//     </div>
+//   )
+// }
+
+
+import { Header } from '@/components/Header'
+import HeroPage from '@/components/HeroPage'
+import React from 'react'
+
+const page = () => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    <>
+      <Header />
+      <HeroPage />
+    </>
+  )
 }
+
+export default page
